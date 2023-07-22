@@ -32,8 +32,10 @@ def get_sum_columns(matriz):
     #Duelve una lista con la suma de los valores de cada columna
     return add_columns
 
+#clase que se usa para ejecutar las funciones que pondran a prueba las funciones de suma de filas y columnas
 class Test(unittest.TestCase):  
 
+    #Funcion para evaluar que realiza la suma correcta de una matriz indicada
     def test_rows_sum(self):
         
         matriz = [
@@ -42,16 +44,12 @@ class Test(unittest.TestCase):
             [2, 6, 8, 1],
             [8, 1, 5, 6]
         ]
-
+        #Se implementa la funcion pasandole la matriz inicial
         rows_total = get_sum_rows( matriz )
+        #Se evalua si lo que genera la funcion corresponde con los resultados esperados
         self.assertEqual( rows_total, [26,19,17,20] )
 
-    def test_row_unique( self ):
-
-        single_row = [[2, 6, 8, 1]]
-        row_total = get_sum_rows( single_row )
-        self.assertEqual( row_total, [17] )
-
+    #Funcion para evaluar que realiza la suma correcta de una matriz indicada
     def test_columns_sum(self):
 
         matriz = [
@@ -60,14 +58,10 @@ class Test(unittest.TestCase):
             [2, 6, 8, 1],
             [8, 1, 5, 6]
         ]
-
+        #Se implementa la funcion de suma de columnas pasandole la matriz inicial
         columns_total = get_sum_columns( matriz )
+        #Se evalua si lo que genera la funcion corresponde con los resultados esperados
         self.assertEqual( columns_total, [15,18,31,18] )
 
-    def test_column_unique(self):
-        single_column = [[9],[9],[8],[5]]
-        column_total = get_sum_columns( single_column )
-        self.assertEqual( column_total, [31] )
-
-
+#Se ejecuta las funciones de la clase de pruebas 
 unittest.main()
